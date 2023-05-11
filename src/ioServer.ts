@@ -4,7 +4,6 @@ export const io = new Server();
 
 io.on("connection", (socket: Socket) => {
   socket.on("note-update", async (data: string, callback) => {
-    console.log(data);
     try {
       if (typeof callback !== "function") {
         return socket.emit("callback-error", "Hu ho, error during note-update");
